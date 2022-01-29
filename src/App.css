@@ -4,9 +4,13 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Karla", sans-serif;
+}
+
 .navbar {
   width: 100%;
-  height: 15vh;
+  height: 12vh;
   background: linear-gradient(90deg, #672280 1.18%, #a626d3 100%);
 }
 
@@ -36,4 +40,79 @@ nav {
 .heading {
   font-size: 1.5rem;
   font-weight: lighter;
+}
+
+.input__section {
+  width: 50%;
+  margin: 2rem auto 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  display: grid;
+  grid-template: 40px 40px / 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.form__input {
+  font-family: "Karla", sans-serif;
+  border-radius: 5px;
+  border: 1px solid #d5d4d8;
+  text-indent: 8px;
+}
+
+.form__button {
+  grid-column: 1/ -1;
+  font-family: "Karla", sans-serif;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  background: linear-gradient(90.41deg, #711f8d 1.14%, #a818da 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.form__button:hover,
+.form__button:active {
+  background: linear-gradient(90.41deg, #500c66 1.14%, #8e19b6 100%);
+}
+.img__container {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  border: 1px solid #d5d4d8;
+  padding: 1rem;
+  flex-direction: column;
+  border-radius: 5px;
+  background: rgb(248, 245, 245);
+}
+.meme__img {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  object-fit: contain;
+}
+
+.silly__text {
+  color: #aeadb3;
+  font-size: 2rem;
+}
+
+.download {
+  font-family: "Karla", sans-serif;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  background: linear-gradient(90.41deg, #711f8d 1.14%, #a818da 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 1rem auto 0 auto;
+  padding: 0.5rem 1rem;
+}
+
+.download:hover {
+  background: linear-gradient(90.41deg, #500c66 1.14%, #8e19b6 100%);
 }
