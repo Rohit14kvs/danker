@@ -2,14 +2,26 @@ import React, { useState } from "react";
 import memeData from "../../src/memeData";
 
 const Meme = () => {
-  const memeArray = memeData.data.memes;
-  const randomNumber = Math.floor(Math.random() * memeArray.length);
-  const [memeImage, setmemeImage] = useState("");
+  //   const [memeImage, setmemeImage] = useState("");
+  const [meme, setMeme] = useState({
+    topText: "",
+    bottomText: "",
+    memeImage: "",
+  });
+  const [allMemeImages, setAllMemeImages] = useState(memeData);
 
   const getMemeImage = () => {
-    setmemeImage(memeArray[randomNumber].url);
-    console.log(memeArray[randomNumber].url);
+    const memeArray = allMemeImages.data.memes;
+    const randomNumber = Math.floor(Math.random() * memeArray.length);
+    const url = memeArray[randomNumber].url;
+    setMeme((prevMeme) => {
+      return {
+        ...meme,
+        memeImage: url,
+      };
+    });
   };
+
   return (
     <section>
       <div className="input__section">
@@ -25,13 +37,13 @@ const Meme = () => {
           </button>
         </div>
         <div className="img__container">
-          {memeImage === "" ? (
+          {meme.memeImage === "" ? (
             <div className="silly__text">Click button to get an image</div>
           ) : (
-            <img src={memeImage} alt="Meme" className="meme__img" />
+            <img src={meme.memeImage} alt="Meme" className="meme__img" />
           )}
         </div>
-        {memeImage && <button className="download">Download</button>}
+        {meme.memeImage && <button className="download">Download</button>}
       </div>
     </section>
   );
