@@ -8,7 +8,7 @@ const Navbar = () => {
           <img src={logo} alt="Logo" className="header__img" />
           <h2>Danker</h2>
         </div>
-        <h4 className="heading">Make Denk MEMES</h4>
+        <h4 className="heading">Phunny Lines</h4>
       </nav>
     </header>
   );

@@ -120,11 +120,11 @@ nav {
 }
 
 .top {
-  top: 0.8rem;
+  top: 3%;
 }
 
 .bottom {
-  bottom: 0.8rem;
+  bottom: 3%;
 }
 
 .meme__img {
@@ -152,4 +152,97 @@ nav {
 
 .download:hover {
   background: linear-gradient(90.41deg, #500c66 1.14%, #8e19b6 100%);
+}
+
+@media screen and (max-width: 1024px) {
+  .silly__text {
+    font-size: 1.7rem;
+  }
+  .meme__img {
+    object-fit: contain;
+  }
+}
+
+@media screen and (max-width: 868px) {
+  .silly__text {
+    font-size: 1.5rem;
+  }
+  .img__container {
+    height: 50vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    height: 10vh;
+  }
+  nav {
+    width: 80%;
+    font-size: 1.2rem;
+  }
+  .header__img {
+    width: 20%;
+  }
+  .heading {
+    font-size: 1rem;
+  }
+  .form__button {
+    font-size: 1rem;
+  }
+  .download {
+    font-size: 1rem;
+  }
+  .meme__text {
+    font-size: 1.5rem;
+  }
+  .meme__img {
+    object-fit: cover;
+  }
+  .silly__text {
+    font-size: 1.5rem;
+  }
+  .input__section {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 664px) {
+  .input__section {
+    width: 65%;
+  }
+  .silly__text {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .heading {
+    display: none;
+  }
+  nav {
+    justify-content: center;
+    align-items: center;
+  }
+  .input__section {
+    width: 75%;
+  }
+  .img__container {
+    height: 40vh;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .form {
+    grid-template: 1fr;
+    grid-gap: 0.5rem;
+  }
+  .form__input {
+    grid-column: 1/-1;
+  }
+  .form__button {
+    padding: 0.5rem 0;
+  }
+  .silly__text {
+    font-size: 0.8rem;
+  }
 }
