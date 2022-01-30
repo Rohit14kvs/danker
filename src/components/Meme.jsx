@@ -1,36 +1,59 @@
-import React, { useState } from "react";
-import memeData from "../../src/memeData";
+import React, { useState, useEffect } from "react";
 
 const Meme = () => {
-  //   const [memeImage, setmemeImage] = useState("");
   const [meme, setMeme] = useState({
     topText: "",
     bottomText: "",
-    memeImage: "",
+    memeImage: "http://i.imgflip.com/1bij.jpg",
   });
-  const [allMemeImages, setAllMemeImages] = useState(memeData);
+
+  const [allMeme, setAllMeme] = useState([]);
 
   const getMemeImage = () => {
-    const memeArray = allMemeImages.data.memes;
-    const randomNumber = Math.floor(Math.random() * memeArray.length);
-    const url = memeArray[randomNumber].url;
+    const randomNumber = Math.floor(Math.random() * allMeme.length);
+    const url = allMeme[randomNumber].url;
     setMeme((prevMeme) => {
       return {
-        ...meme,
+        ...prevMeme,
         memeImage: url,
       };
     });
   };
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setMeme((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  useEffect(() => {
+    fetch("https://api.imgflip.com/get_memes")
+      .then((res) => res.json())
+      .then((data) => setAllMeme(data.data.memes));
+  }, []);
+  console.log(allMeme);
+
   return (
     <section>
       <div className="input__section">
         <div className="form">
-          <input type="text" placeholder="Top text" className="form__input" />
+          <input
+            type="text"
+            placeholder="Top text"
+            className="form__input"
+            name="topText"
+            value={meme.topText}
+            onChange={handleChange}
+          />
           <input
             type="text"
             placeholder="Bottom text"
             className="form__input"
+            name="bottomText"
+            value={meme.bottomText}
+            onChange={handleChange}
           />
           <button className="form__button" onClick={getMemeImage}>
             Get a new meme image
@@ -40,9 +63,16 @@ const Meme = () => {
           {meme.memeImage === "" ? (
             <div className="silly__text">Click button to get an image</div>
           ) : (
-            <img src={meme.memeImage} alt="Meme" className="meme__img" />
+            <div className="inside__img">
+              <img src={meme.memeImage} alt="Meme" className="meme__img" />
+              <div className="meme">
+                <h2 className="meme__text top">{meme.topText}</h2>
+                <h2 className="meme__text bottom">{meme.bottomText}</h2>
+              </div>
+            </div>
           )}
         </div>
+
         {meme.memeImage && <button className="download">Download</button>}
       </div>
     </section>
