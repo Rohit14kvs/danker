@@ -4,7 +4,7 @@ const Meme = () => {
   const [meme, setMeme] = useState({
     topText: "",
     bottomText: "",
-    memeImage: "http://i.imgflip.com/1bij.jpg",
+    memeImage: "",
   });
 
   const [allMeme, setAllMeme] = useState([]);
@@ -62,7 +62,7 @@ const Meme = () => {
           </button>
         </div>
         <div className="img__container">
-          {meme.memeImage === [] ? (
+          {meme.memeImage === "" ? (
             <div className="silly__text">Click button to get an image</div>
           ) : (
             <div className="inside__img">
@@ -74,8 +74,11 @@ const Meme = () => {
             </div>
           )}
         </div>
-
-        {meme.memeImage && <button className="download">Download</button>}
+        {meme.memeImage && (
+          <button className="download" type="submit">
+            Download
+          </button>
+        )}
       </div>
     </section>
   );
